@@ -1,0 +1,6 @@
+= form_with model: link do |f|
+  .mb-3
+    %label.form-label External URL
+    = f.text_field :external_url, class: 'form-control'
+  .mb-3
+    = f.submit "Generate", disable_with: 'Generating...', class: 'btn btn-primary'   
