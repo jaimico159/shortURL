@@ -1,0 +1,14 @@
+.container
+  %table.table.table-stripped
+    %thead
+      %tr
+        %th External URL
+        %th Created At
+        %th Visits
+    %tbody
+      - @links&.each do |link|
+        %tr
+          %td= link.external_url
+          %td= link.created_at
+          %td= link.visits.size
+      
