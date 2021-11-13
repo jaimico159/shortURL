@@ -11,6 +11,7 @@ import "channels"
 require("@popperjs/core")
 
 import "bootstrap"
+require("../stylesheets/application.scss")
 
 Rails.start()
 Turbolinks.start()
