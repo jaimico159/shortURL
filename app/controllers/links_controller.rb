@@ -1,7 +1,18 @@
 class LinksController < ApplicationController
-  def index; end
+  def index
+    @links = Link.all
+  end
 
-  def show; end
+  def show
+    @link = Link.find_by(token: token)
+  end
+
+  def token_redirection
+    link = Link.find_by(token: params[:token])
+
+    redirect_to root_path, alert: 'Link doens\'t exists' if link.blank?
+    redirect_to link.external_url
+  end
 
   def new
     @link = Link.new
@@ -14,7 +25,7 @@ class LinksController < ApplicationController
     link.token = resp[:data][:token]
 
     if link.save
-      redirect_to link_path(link), notice: 'Link generated successfully!'
+      redirect_to link_info_path(link), notice: 'Link generated successfully!'
     else
       redirect_to root_path, alert: link.errors.full_messages.join(',')
     end
