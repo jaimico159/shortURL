@@ -1,17 +1,11 @@
 class LinksController < ApplicationController
   def index
     @links = Link.all
+    @host = request.base_url
   end
 
   def show
-    @link = Link.find_by(token: token)
-  end
-
-  def token_redirection
-    link = Link.find_by(token: params[:token])
-
-    redirect_to root_path, alert: 'Link doens\'t exists' if link.blank?
-    redirect_to link.external_url
+    @link = Link.find_by(token: params[:token])
   end
 
   def new
