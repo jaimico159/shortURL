@@ -15,7 +15,7 @@ class TokenGenerator < ApplicationService
     3.times do
       token = SecureRandom.alphanumeric(8)
 
-      next if Link.where(token: token).exist?
+      next if Link.where(token: token).exists?
 
       return token
     end
