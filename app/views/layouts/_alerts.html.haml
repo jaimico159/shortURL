@@ -1,0 +1,9 @@
+- if flash[:alert].present?
+  .alert.alert-danger.alert-dismissible.fade.show{ role: 'alert' }
+    = flash[:alert]
+    %button.btn-close{ type: 'button', 'data-bs-dismiss': 'alert', 'aria-label': 'Close' }
+- if flash[:notice].present?
+  .alert.alert-primary.alert-dismissible.fade.show{ role: 'alert' }
+    = flash[:notice]
+    %button.btn-close{ type: 'button', 'data-bs-dismiss': 'alert', 'aria-label': 'Close' }
+  
