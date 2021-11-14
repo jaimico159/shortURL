@@ -4,4 +4,8 @@ class Link < ApplicationRecord
   validates_length_of :token, is: 8
 
   has_many :visits
+
+  def short_url(request)
+    "#{request.base_url}/#{token}"
+  end
 end
