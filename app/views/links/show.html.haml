@@ -1,0 +1,19 @@
+.container.mt-5
+  .row.mb-5
+    %h4=@link.external_url
+    %label= "Created At: #{@link.created_at}"
+    %label= "Visits: #{@link.visits.size}"
+  .row
+    %table.table.table-stripped
+      %thead
+        %tr
+          %th IP Address
+          %th Visited at
+      %tbody
+        - @link.visits.each do |visit|
+          %tr
+            %td= visit.ip_address
+            %td= visit.created_at
+      
+
+
