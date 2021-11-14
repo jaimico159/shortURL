@@ -1,11 +1,12 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.all
+    @links = Link.all.order(:created_at)
     @host = request.base_url
   end
 
   def show
-    @link = Link.find_by(token: params[:token])
+    @link = Link.includes(:visits).find_by(token: params[:token])
+    @short_url = @link.short_url(request)
   end
 
   def new
