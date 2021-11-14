@@ -3,5 +3,5 @@ class Link < ApplicationRecord
   validates_presence_of :token
   validates_length_of :token, is: 8
 
-  has_many :visits, counter_cache: true
+  has_many :visits
 end
