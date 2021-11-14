@@ -19,7 +19,7 @@ class LinksController < ApplicationController
     link.token = resp[:data][:token]
 
     if link.save
-      redirect_to link_info_path(link), notice: 'Link generated successfully!'
+      redirect_to link_info_path(link.token), notice: 'Link generated successfully!'
     else
       redirect_to root_path, alert: link.errors.full_messages.join(',')
     end
