@@ -3,12 +3,17 @@
     %thead
       %tr
         %th External URL
+        %th Short URL
         %th Created At
         %th Visits
+        %th Redirect
     %tbody
       - @links&.each do |link|
         %tr
           %td= link.external_url
+          %td= "#{@host}/#{link.token}"
           %td= link.created_at
           %td= link.visits.size
+          %td
+            %a{:href => "#{link.external_url}"} Link
       
